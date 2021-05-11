@@ -11,6 +11,35 @@ public class Location {
         this.name = name;
     }
 
+    public static List<Location> getAll() {
+        String sql = "SELECT * FROM locations;";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Location.class);
+        }
+    }
+
+    public static Location findById(int id) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM locations where id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Location.class);
+        }
+    }
+
+    public static void update(int id, String name) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE locations SET name = :name WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
     public String getName() {
         return name;
     }
