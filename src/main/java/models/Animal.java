@@ -8,7 +8,7 @@ public class Animal {
     public int id;
     public String name;
     public String age;
-    public String  health;
+    public String health;
     public String type;
 
 
@@ -29,11 +29,11 @@ public class Animal {
         return id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getAge(){
+    public String getAge() {
         return age;
     }
 
@@ -41,7 +41,7 @@ public class Animal {
         return health;
     }
 
-    public String getType(){
+    public String getType() {
         return type;
     }
 
