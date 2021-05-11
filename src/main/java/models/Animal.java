@@ -11,7 +11,21 @@ public class Animal {
     public String  health;
     public String type;
 
-    public int getId(){
+
+    public static void update(int id, String name, String health, String age) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE animals SET name = :name, health = :health, age = :age WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("health", health)
+                    .addParameter("age", age)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
+    public int getId() {
         return id;
     }
 
