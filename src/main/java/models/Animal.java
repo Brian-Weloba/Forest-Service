@@ -45,6 +45,30 @@ public class Animal {
         return type;
     }
 
+
+    public void delete() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM animals WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeUpdate();
+        }
+    }
+
+    public void save() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name, type, age, health) VALUES (:name, :type, :age, :health)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("name", this.name)
+                    .addParameter("type", this.type)
+                    .addParameter("age", this.age)
+                    .addParameter("health", this.health)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
