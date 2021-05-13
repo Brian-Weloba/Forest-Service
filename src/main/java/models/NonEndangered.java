@@ -7,8 +7,10 @@ import java.util.List;
 public class NonEndangered extends Animal {
     public static final String animalType = "Non-Endangered";
 
-    public NonEndangered(String name) {
+    public NonEndangered(String name, String health, String age) {
         this.name = name;
+        this.health = health;
+        this.age = age;
         this.type = animalType;
     }
 
