@@ -2,6 +2,7 @@ package models;
 
 import org.sql2o.Connection;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Animal {
@@ -66,6 +67,24 @@ public class Animal {
                     .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
+        }
+    }
+
+    public static Animal findById(int id) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Animal.class);
+        }
+    }
+
+    public static List<Animal> getAllAnimals() {
+        String sql = "SELECT * FROM animals;";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Animal.class);
         }
     }
 
