@@ -4,10 +4,11 @@ function endangeredForm() {
 
     //add div for eName input
     var eNameDiv = document.createElement("div");
-    eNameDiv.setAttribute("class", "txt_field");
+    eNameDiv.setAttribute("class", "txt_field col-12");
 
     //add eName label to form
     var eNameLabel = document.createElement("label");
+    eNameLabel.setAttribute("class", "form-label")
     eNameLabel.innerHTML = "Animal Name : ";
     eNameLabel.htmlFor = "eName";
 
@@ -19,18 +20,19 @@ function endangeredForm() {
     eName.setAttribute("placeholder", "Enter animal name");
 
     //create eName input
-    eNameDiv.appendChild(eNameLabel).appendChild(eName);
+    eNameDiv.appendChild(eNameLabel);
+    eNameDiv.appendChild(eName);
 
     //add div for eAge input
     var eAgeDiv = document.createElement("div");
-    eAgeDiv.setAttribute("class", "form-group col-md-4");
+    eAgeDiv.setAttribute("class", "form-group col-md-6");
     eAgeDiv.setAttribute("style", "width:200px;")
 
     //add eAge select to form
     var eAge = document.createElement("select");
     eAge.setAttribute("id", "eAge");
     eAge.setAttribute("name", "eAge");
-    eAge.setAttribute("class", "form-control");
+    eAge.setAttribute("class", "form-select");
     eAge.setAttribute("type", "text");
 
     //add eAge label to form
@@ -49,23 +51,25 @@ function endangeredForm() {
     }
 
     //create eAge input
-    eAgeDiv.appendChild(eAgeLabel).appendChild(eAge);
+    eAgeDiv.appendChild(eAgeLabel);
+    eAgeDiv.appendChild(eAge);
 
     //add div for eHealth input
     var eHealthDiv = document.createElement("div");
-    eHealthDiv.setAttribute("class", "form-group col-md-4");
+    eHealthDiv.setAttribute("class", "form-group col-md-6");
     eHealthDiv.setAttribute("style", "width:200px;")
 
     //add eHealth select to form
     var eHealth = document.createElement("select");
     eHealth.setAttribute("id", "eHealth");
     eHealth.setAttribute("name", "eHealth");
-    eHealth.setAttribute("class", "form-control");
+    eHealth.setAttribute("class", "form-select");
     eHealth.setAttribute("type", "text");
 
     //add eHealth label to form
     var eHealthLabel = document.createElement("label");
     eHealthLabel.setAttribute("for", "eHealth");
+    eHealthLabel.setAttribute("class", "form-label");
     eHealthLabel.innerHTML = "Animal Health : ";
     eHealthLabel.htmlFor = "eHealth";
 
@@ -79,28 +83,30 @@ function endangeredForm() {
     }
 
     //create eHealth input
-    eHealthDiv.appendChild(eHealthLabel).appendChild(eHealth);
+    eHealthDiv.appendChild(eHealthLabel);
+    eHealthDiv.appendChild(eHealth);
 
     //add div for location input
     var lNameDiv = document.createElement("div");
-    lNameDiv.setAttribute("class", "form-group col-md-4");
+    lNameDiv.setAttribute("class", "form-group col-12");
     lNameDiv.setAttribute("style", "width:200px;")
 
     //add location select to form
     var lName = document.createElement("select");
     lName.setAttribute("id", "lName");
     lName.setAttribute("name", "lName");
-    lName.setAttribute("class", "form-control");
+    lName.setAttribute("class", "form-select");
     lName.setAttribute("type", "text");
 
     //add lName label to form
     var lNameLabel = document.createElement("label");
     lNameLabel.setAttribute("for", "lName");
+    lNameLabel.setAttribute("class", "form-label");
     lNameLabel.innerHTML = "Location : ";
     lNameLabel.htmlFor = "lName";
 
     //add lName value options to select
-    var locationValues = ["Aberdare National Park", "Amboseli National Park", "Arabuko Sokoke National Park", "Hell's Gate National Park", "Kora National Park", "Lake Nakuru National Park", "Masai Mara National Park", "Meru National Park", "Mount Elgon National Park", "Nairobi National Park", "Ol Donyo Sabuk National Park", "Tsavo East National Park", "Tsavo West National Park"  ];
+    var locationValues = ["Aberdare National Park", "Amboseli National Park", "Arabuko Sokoke National Park", "Hell's Gate National Park", "Kora National Park", "Lake Nakuru National Park", "Masai Mara National Park", "Meru National Park", "Mount Elgon National Park", "Nairobi National Park", "Ol Donyo Sabuk National Park", "Tsavo East National Park", "Tsavo West National Park"];
     for (const l of locationValues) {
         var lNameOptions = document.createElement("option");
         lNameOptions.setAttribute("value", l);
@@ -109,13 +115,15 @@ function endangeredForm() {
     }
 
     //create lName input
-    lNameDiv.appendChild(lNameLabel).appendChild(lName);
+    lNameDiv.appendChild(lNameLabel);
+    lNameDiv.appendChild(lName);
 
     //add submit input to form
     var eSubmit = document.createElement("input");
     eSubmit.setAttribute("type", "submit");
     eSubmit.setAttribute("value", "Add Animal");
-    eSubmit.setAttribute("class", "btn btn-outline-success");
+    eSubmit.setAttribute("style","margin-left:15px;")
+    eSubmit.setAttribute("class", "btn btn-outline-secondary mbr-text mbr-fonts-style display-5");
     eSubmit.setAttribute("onclick", "return validateE()");
 
     //add all inputs to form
@@ -134,13 +142,13 @@ function endangeredForm() {
     document.getElementById("dtl-h5").style.display = "block";
 }
 
-function validateE(){
+function validateE() {
     var y = document.getElementById("eName").value;
-    if(y == "")
-    {
+    if (y == "") {
         alert("Enter a Valid name")
         return false;
-    };
+    }
+    ;
 }
 
 function thrivingForm() {
@@ -149,12 +157,13 @@ function thrivingForm() {
 
     //add div for name input
     var nameDiv = document.createElement("div");
-    nameDiv.setAttribute("class", "txt_field");
+    nameDiv.setAttribute("class", "txt_field col-12");
 
     //add name label to form
     var nameLabel = document.createElement("label");
     nameLabel.innerHTML = "Animal Name : ";
     nameLabel.htmlFor = "name";
+    nameLabel.setAttribute("class", "form-label")
 
     //add name input to form
     var name = document.createElement("input");
@@ -162,13 +171,15 @@ function thrivingForm() {
     name.setAttribute("name", "name");
     name.setAttribute("type", "text");
     name.setAttribute("placeholder", "Enter animal name");
+    name.setAttribute("class", "form-control");
 
     //create name input
-    nameDiv.appendChild(nameLabel).appendChild(name);
+    nameDiv.appendChild(nameLabel);
+    nameDiv.appendChild(name);
 
     //add div for age input
     var ageDiv = document.createElement("div");
-    ageDiv.setAttribute("class", "form-group col-md-4");
+    ageDiv.setAttribute("class", "form-group col-md-6");
     ageDiv.setAttribute("style", "width:200px;")
 
     //add age select to form
@@ -181,6 +192,7 @@ function thrivingForm() {
     //add age label to form
     var ageLabel = document.createElement("label");
     ageLabel.setAttribute("for", "age");
+    ageLabel.setAttribute("class", "form-label");
     ageLabel.innerHTML = "Animal Age : ";
     ageLabel.htmlFor = "age";
 
@@ -194,11 +206,12 @@ function thrivingForm() {
     }
 
     //create age input
-    ageDiv.appendChild(ageLabel).appendChild(age);
+    ageDiv.appendChild(ageLabel);
+    ageDiv.appendChild(age);
 
     //add div for health input
     var healthDiv = document.createElement("div");
-    healthDiv.setAttribute("class", "form-group col-md-4");
+    healthDiv.setAttribute("class", "form-group col-md-6");
     healthDiv.setAttribute("style", "width:200px;")
 
     //add health select to form
@@ -211,6 +224,7 @@ function thrivingForm() {
     //add health label to form
     var healthLabel = document.createElement("label");
     healthLabel.setAttribute("for", "health");
+    healthLabel.setAttribute("class", "form-label")
     healthLabel.innerHTML = "Animal Health : ";
     healthLabel.htmlFor = "health";
 
@@ -224,28 +238,30 @@ function thrivingForm() {
     }
 
     //create health input
-    healthDiv.appendChild(healthLabel).appendChild(health);
+    healthDiv.appendChild(healthLabel);
+    healthDiv.appendChild(health);
 
     //add div for location input
     var lNameDiv = document.createElement("div");
-    lNameDiv.setAttribute("class", "form-group col-md-4");
+    lNameDiv.setAttribute("class", "form-group col-12");
     lNameDiv.setAttribute("style", "width:200px;")
 
     //add location select to form
     var lName = document.createElement("select");
     lName.setAttribute("id", "lName");
     lName.setAttribute("name", "lName");
-    lName.setAttribute("class", "form-control");
+    lName.setAttribute("class", "form-select");
     lName.setAttribute("type", "text");
 
     //add lName label to form
     var lNameLabel = document.createElement("label");
     lNameLabel.setAttribute("for", "lName");
+    lNameLabel.setAttribute("class", "form-label");
     lNameLabel.innerHTML = "Location : ";
     lNameLabel.htmlFor = "lName";
 
     //add lName value options to select
-    var locationValues = ["Aberdare National Park", "Amboseli National Park", "Arabuko Sokoke National Park", "Hell's Gate National Park", "Kora National Park", "Lake Nakuru National Park", "Masai Mara National Park", "Meru National Park", "Mount Elgon National Park", "Nairobi National Park", "Ol Donyo Sabuk National Park", "Tsavo East National Park", "Tsavo West National Park"  ];
+    var locationValues = ["Aberdare National Park", "Amboseli National Park", "Arabuko Sokoke National Park", "Hell's Gate National Park", "Kora National Park", "Lake Nakuru National Park", "Masai Mara National Park", "Meru National Park", "Mount Elgon National Park", "Nairobi National Park", "Ol Donyo Sabuk National Park", "Tsavo East National Park", "Tsavo West National Park"];
     for (const l of locationValues) {
         var lNameOptions = document.createElement("option");
         lNameOptions.setAttribute("value", l);
@@ -254,13 +270,15 @@ function thrivingForm() {
     }
 
     //create lName input
-    lNameDiv.appendChild(lNameLabel).appendChild(lName);
+    lNameDiv.appendChild(lNameLabel);
+    lNameDiv.appendChild(lName);
 
     //add submit input to form
     var submit = document.createElement("input");
     submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Add Animal");
-    submit.setAttribute("class", "btn btn-outline-success");
+    submit.setAttribute("style","margin-left:15px;")
+    submit.setAttribute("class", "btn btn-outline-secondary mbr-text mbr-fonts-style display-5");
     submit.setAttribute("onclick", "return validate()");
 
     //add all inputs to form
@@ -279,11 +297,11 @@ function thrivingForm() {
     document.getElementById("dtl-h5").style.display = "block";
 }
 
-function validate(){
+function validate() {
     var x = document.getElementById("name").value;
-    if(x == "")
-    {
+    if (x == "") {
         alert("Enter a Valid name")
         return false;
-    };
+    }
+    ;
 }
