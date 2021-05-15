@@ -23,7 +23,8 @@ body {
 
 .form-select,
 #name,
-#eName {
+#eName,
+#rName {
     width: 100%;
     padding: .375rem 2.25rem .375rem .75rem;
     font-size: 1rem;
