@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+    <div class="center">
+        <div id="rdtl-h5">
+            <h5><strong>Enter your Name</strong></h5>
+            <hr>
+        </div>
+        <form action="/rangers/new" method="post" class="row">
+            <div class="txt_field">
+                <label for="rName">Name: </label>
+                <input id="rName" name="rName" type="text" placeholder="Enter name">
+            </div>
+            <button type="submit" class="btn btn-outline-success" style="margin-left: 6px;">Join</button>
+            <span></span>
+        </form>
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

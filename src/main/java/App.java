@@ -12,7 +12,17 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
     public static void main(String[] args) {
+
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         //GET
@@ -64,10 +74,10 @@ public class App {
 
             //thriving animal
             String name = request.queryParams("name");
-            String health =request.queryParams("health");
+            String health = request.queryParams("health");
             String age = request.queryParams("age");
 
-            NonEndangered newNonEndangered = new NonEndangered(name, health , age);
+            NonEndangered newNonEndangered = new NonEndangered(name, health, age);
             if (name != null && age != null && health != null) {
                 newNonEndangered.save();
 

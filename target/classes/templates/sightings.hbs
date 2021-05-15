@@ -1,0 +1,28 @@
+{{#partial "content"}}
+
+    <h1 style="text-align : center; padding : 20px 0; "><strong>All Sightings</strong></h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Animal</th>
+            <th scope="col">Ranger</th>
+            <th scope="col">Location</th>
+            <th scope="col">Created On</th>
+        </tr>
+        </thead>
+        {{#each sightings}}
+            <tbody>
+            <tr>
+                <th scope="row">{{ id }}</th>
+                <td>{{ lookup ../animals @index }}</td>
+                <td>{{ lookup ../rangers @index }}</td>
+                <td>{{ lookup ../locations @index }}</td>
+                <td>{{ lookup ../created_at @index }}</td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
+
+{{/partial}}
+{{>layout.hbs}}

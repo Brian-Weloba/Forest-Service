@@ -26,6 +26,24 @@ public class Animal {
         }
     }
 
+    public static Animal findById(int id) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Animal.class);
+        }
+    }
+
+    public static List<Animal> getAllAnimals() {
+        String sql = "SELECT * FROM animals;";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Animal.class);
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -45,7 +63,6 @@ public class Animal {
     public String getType() {
         return type;
     }
-
 
     public void delete() {
         try (Connection con = DB.sql2o.open()) {
@@ -67,24 +84,6 @@ public class Animal {
                     .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
-        }
-    }
-
-    public static Animal findById(int id) {
-        try (Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM animals where id=:id";
-            return con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeAndFetchFirst(Animal.class);
-        }
-    }
-
-    public static List<Animal> getAllAnimals() {
-        String sql = "SELECT * FROM animals;";
-        try (Connection con = DB.sql2o.open()) {
-            return con.createQuery(sql)
-                    .throwOnMappingFailure(false)
-                    .executeAndFetch(Animal.class);
         }
     }
 

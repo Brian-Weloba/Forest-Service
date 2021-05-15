@@ -1,0 +1,54 @@
+{{#partial "content"}}
+
+    {{#if rangers}}
+        <div class="container-fluid"
+             style="display: flex; flex-direction: column; align-content: center; justify-content: center">
+            <div id="anml-h4">
+                <h3 style="text-decoration: underline; margin-top: 2rem; margin-bottom: 1rem;">Add Animal</h3>
+                <h5>As a conservation volunteer, you play a vital role by assisting <strong>Forest Service’s</strong>
+                    research monitors on our wildlife volunteer projects. You will be the monitor’s direct assistant and
+                    aid them with their daily activities. You will experience what it’s like to be one of Africa’s
+                    wildlife researchers. This will give you the opportunity to learn not only about these focal
+                    endangered species but also about many other aspects of the African bush-veld; and gain exclusive
+                    hands-on experience.</h5>
+
+                <div class="container"
+                     style="margin-top: 1rem;  padding-left: 0; display: inline-flex; align-content: center;">
+                    <button id="endg-btn" onclick="endangeredForm()" style="display: block;"
+                            class="btn btn-outline-secondary mbr-text mbr-fonts-style display-5">Endangered Species
+                    </button>
+
+                    <button id="thrv-btn" onclick="thrivingForm()" style=" margin-left: 40px; display: block;"
+                            class="btn btn-outline-secondary mbr-text mbr-fonts-style display-5">Thriving Species
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="center" style="z-index: -1;">
+            <div id="dtl-h5" style="display : none;">
+                <h5><strong>Enter sighting detail</strong></h5>
+                <hr>
+            </div>
+            <form method="post" action="/sightings/new" id="form-div" class="row g-3">
+
+                <div class="col-12" id="rngr-id" style="display : none;">
+                    <label for="rangerId" class="form-label">Ranger Name : </label>
+                    <select id="rangerId" name="rangerId" class="form-select">
+                        {{#each rangers}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </form>
+        </div>
+
+    {{else}}
+        <div class="txt_field">
+            <p>Need to join as ranger first <a href="/rangers/new" style="text-decoration : none;">Join here</a></p>
+        </div>
+
+    {{/if}}
+
+{{/partial}}
+{{>layout.hbs}}
