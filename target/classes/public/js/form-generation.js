@@ -122,7 +122,7 @@ function endangeredForm() {
     var eSubmit = document.createElement("input");
     eSubmit.setAttribute("type", "submit");
     eSubmit.setAttribute("value", "Add Animal");
-    eSubmit.setAttribute("style","margin-left:15px;")
+    eSubmit.setAttribute("style", "margin-left:15px;")
     eSubmit.setAttribute("class", "btn btn-outline-secondary mbr-text mbr-fonts-style display-5");
     eSubmit.setAttribute("onclick", "return validateE()");
 
@@ -277,7 +277,7 @@ function thrivingForm() {
     var submit = document.createElement("input");
     submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Add Animal");
-    submit.setAttribute("style","margin-left:15px;")
+    submit.setAttribute("style", "margin-left:15px;")
     submit.setAttribute("class", "btn btn-outline-secondary mbr-text mbr-fonts-style display-5");
     submit.setAttribute("onclick", "return validate()");
 
